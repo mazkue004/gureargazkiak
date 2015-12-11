@@ -28,25 +28,27 @@
 		{
 			$argazki = addslashes($argazki);
 		}
-	}
-	
-	if((isset($_POST['izenburua'])) &&(isset($_POST['etiketa'])) && (isset($_POST['optradio']))){
-		if(!filter_var($_POST['izenburua'], FILTER_VALIDATE_REGEXP,array("options"=>array("regexp"=>"/[A-Z]([a-zA-Z]|\s[a-zA-Z])*/"))) === false){
-			$erabepost = mysql_query("select * from erabiltzaile where Eposta='$_SESSION[Eposta]'");
-			if(mysql_fetch_array($erabepost)){
-				$sql="INSERT INTO argazkia(Eposta, Izenburua, Etiketa, Mota, Argazkia, KopErregistratu, KopAnonimo) VALUES ('$_SESSION[Eposta]','$_POST[izenburua]','$_POST[etiketa]','$_POST[optradio]','$argazkiEdukia',0,0)";
-				if(!mysql_query($sql)){
-					die('Errorea:  '.mysql_error());
+		if((isset($_POST['izenburua'])) &&(isset($_POST['etiketa'])) && (isset($_POST['optradio']))){
+			if(!filter_var($_POST['izenburua'], FILTER_VALIDATE_REGEXP,array("options"=>array("regexp"=>"/[A-Z]([a-zA-Z]|\s[a-zA-Z])*/"))) === false){
+				$erabepost = mysql_query("select * from erabiltzaile where Eposta='$_SESSION[Eposta]'");
+				if(mysql_fetch_array($erabepost)){
+					$sql="INSERT INTO argazkia(Eposta, Izenburua, Etiketa, Mota, Argazkia, KopErregistratu, KopAnonimo) VALUES ('$_SESSION[Eposta]','$_POST[izenburua]','$_POST[etiketa]','$_POST[optradio]','$argazkiEdukia',0,0)";
+					if(!mysql_query($sql)){
+						die('Errorea:  '.mysql_error());
+					}
+					echo 'Ondo gorde da';
+					mysql_close();
+					}else{
+					echo 'Ez dago erabiltzailea';
 				}
-				echo 'Ondo gorde da';
-				mysql_close();
-				}else{
-				echo 'Ez dago erabiltzailea';
+				} else{
+				echo 'Arazo bat egon da, ez da argazkia gorde';
 			}
 			} else{
-			echo 'Arazo bat egon da, ez da argazkia gorde';
+			echo 'Zuriunerenbat utzi duzu';
 		}
-		} else{
-		echo 'Zuriunerenbat utzi duzu';
+	} else {
+		echo $_FILES['argazki']['size'].'Argazkiaren tamaina 2MB baino handiagoa da';
 	}
+	
 ?>
