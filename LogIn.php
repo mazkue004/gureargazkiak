@@ -1,3 +1,4 @@
+
 <?php
 	session_start();
 	mysql_connect("localhost","root","") or die(mysql_error());
@@ -30,6 +31,7 @@
 					$_SESSION['Rola']=$erab['Rola'];
 					if($erab['Rola']=='admin'){
 						//echo "admin";
+						//echo '<script>administratzailea();</script>';
 						header("Location:administratzailea.php");
 						exit();
 						}else if($erab['Rola']=='erab'){
@@ -46,3 +48,5 @@
 		echo '<script>alert("Bete eremu guztiak");window.location.href="index.html";</script>';
 	}
 ?>
+
+<html></html>

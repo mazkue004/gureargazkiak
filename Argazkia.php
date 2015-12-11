@@ -14,7 +14,7 @@
 		</div>
 		<div class="form-group">
 			<label>Mota(*): </label><div class="radio">
-				<label><input type="radio" name="optradio" value="prib">Pribatua</label>
+				<label><input type="radio" name="optradio" value="prib" checked>Pribatua</label>
 			</div>
 			<div class="radio">
 				<label><input type="radio" name="optradio" value="atzipmug">Atzipen mugatua</label>

@@ -36,7 +36,7 @@
 					if(!mysql_query($sql)){
 						die('Errorea:  '.mysql_error());
 					}
-					echo 'Ondo gorde da';
+					echo '<script>alert("Ondo gorde da");window.location.href="erabiltzaile.php";</script>';
 					mysql_close();
 					}else{
 					echo 'Ez dago erabiltzailea';

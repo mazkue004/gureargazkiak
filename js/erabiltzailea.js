@@ -16,7 +16,7 @@ function argazkia(){
 	XMLHttpRequestObject.send();
 }
 
-/*Erregistratun profileko argazkia momentuan agertzeko*/
+/*Erabiltzaileak igo behar duen argazkia momentuan agertzeko*/
 function showImage(src, target) {
 	var fr = new FileReader();
 	
@@ -39,4 +39,35 @@ function argazkiaErakutsi() {
 	var src = document.getElementById("argazki");
 	var target = document.getElementById("target");
 	showImage(src, target);
+}
+
+function argazkiaErabiltzailea(){
+	XMLHttpRequestObject = new XMLHttpRequest();
+	XMLHttpRequestObject.onreadystatechange = function(){
+		//alert(XMLHttpRequestObject.readyState);
+		if((XMLHttpRequestObject.readyState==4)&&(XMLHttpRequestObject.status==200)){
+			document.getElementById("datuak").innerHTML=XMLHttpRequestObject.responseText;
+		}
+	}
+	
+	XMLHttpRequestObject.open("GET", "ArgazkiakIkusiErabiltzaileak.php", true);
+	XMLHttpRequestObject.send();
+}
+
+function ezabatuArgazkiaErabiltzailea(kodea){
+	var kod=kodea;
+	var r = confirm("Ziur zaude argazkia ezabatu nahi duzula?");
+    if (r == true) {
+        XMLHttpRequestObject = new XMLHttpRequest();
+		XMLHttpRequestObject.onreadystatechange = function(){
+			//alert(XMLHttpRequestObject.readyState);
+			if((XMLHttpRequestObject.readyState==4)&&(XMLHttpRequestObject.status==200)){
+				document.getElementById("edit").innerHTML=XMLHttpRequestObject.responseText;
+			}
+		}
+		XMLHttpRequestObject.open("GET", "EzabatuArgazkia.php?kodea=" + kod, true);
+		XMLHttpRequestObject.send();
+	}
+	
+	
 }

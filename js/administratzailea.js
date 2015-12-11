@@ -19,7 +19,7 @@ function argazkia(){
 		}
 	}
 	
-	XMLHttpRequestObject.open("GET", "ArgazkiaIgo.php", true);
+	XMLHttpRequestObject.open("GET", "ArgazkiakIkusi.php", true);
 	XMLHttpRequestObject.send();
 }
 
@@ -42,10 +42,10 @@ function editatu(email){
 	XMLHttpRequestObject.onreadystatechange = function(){
 		//alert(XMLHttpRequestObject.readyState);
 		if((XMLHttpRequestObject.readyState==4)&&(XMLHttpRequestObject.status==200)){
-			document.getElementById("editatu").innerHTML=XMLHttpRequestObject.responseText;
+			document.getElementById("datuak").innerHTML=XMLHttpRequestObject.responseText;
 		}
 	}
-	XMLHttpRequestObject.open("GET", "Editatu.php?email=" + posta, true);
+	XMLHttpRequestObject.open("GET", "ArgazkiakIkusi.php?email=" + posta, true);
 	XMLHttpRequestObject.send();
 	
 }
@@ -62,6 +62,24 @@ function ezabatu(email){
 			}
 		}
 		XMLHttpRequestObject.open("GET", "Ezabatu.php?email=" + posta, true);
+		XMLHttpRequestObject.send();
+	}
+	
+	
+}
+
+function ezabatuArgazkia(kodea){
+	var kod=kodea;
+	var r = confirm("Ziur zaude argazkia ezabatu nahi duzula?");
+    if (r == true) {
+        XMLHttpRequestObject = new XMLHttpRequest();
+		XMLHttpRequestObject.onreadystatechange = function(){
+			//alert(XMLHttpRequestObject.readyState);
+			if((XMLHttpRequestObject.readyState==4)&&(XMLHttpRequestObject.status==200)){
+				document.getElementById("edit").innerHTML=XMLHttpRequestObject.responseText;
+			}
+		}
+		XMLHttpRequestObject.open("GET", "EzabatuArgazkia.php?kodea=" + kod, true);
 		XMLHttpRequestObject.send();
 	}
 	

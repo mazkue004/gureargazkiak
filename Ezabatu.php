@@ -7,5 +7,6 @@
 	
 	$sql="delete from erabiltzaile where Eposta='$_GET[email]'";
 	mysql_query($sql);
-	//DELETE FROM somelog WHERE user = 'jcole'
+	
+	echo "Erabiltzailea ondo ezabatu da";
 ?>

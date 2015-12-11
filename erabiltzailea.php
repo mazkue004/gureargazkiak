@@ -45,7 +45,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="">Nire argazkiak</a></li>
+            <li><a href="javascript:argazkiaErabiltzailea();">Argazkiak administratu</a></li>
 			<li><a href="javascript:argazkia();">Argazkia igo</a></li>
             <li><a href="javascript:creditsDeitu();">Nor gara gu?</a></li>
 			<li><a href="index.html">Saioa itxi</a></li>
