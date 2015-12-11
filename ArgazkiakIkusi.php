@@ -8,7 +8,7 @@
 	$sql=mysql_query("select * from argazkia where Eposta='$_GET[email]'");
 	echo "<h3>".$_GET['email']."-ren argazkiak</h3>";
 	echo '<div id="edit"></div>';
-	echo '<div class="table-responsibe"><table class="table"><tr><th>Izenburua</th><th>Etiketa</th><th>Mota</th><th>Argazkia</th></tr>';
+	echo '<div class="table-responsibe"><table class="table table-hover"><thead><tr><th>Izenburua</th><th>Etiketa</th><th>Mota</th><th>Argazkia</th><th>Aukerak</th></tr></thead><tbody>';
 	while($argazkia=mysql_fetch_array($sql)){
 	if($argazkia['Argazkia'] == null){
 			echo '<tr><td>'.$argazkia['Izenburua'].'</td> <td>'. $argazkia['Etiketa'].'</td> <td>'.$argazkia['Mota'].'</td><td>Erroreren batengatik ezin izan da irudirik gorde</td><td>';
@@ -26,7 +26,7 @@
 			echo '</td></tr>';
 		}
 	}
-	echo '</table></div>';
+	echo '</tbody></table></div>';
 	
 	
 ?>

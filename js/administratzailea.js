@@ -19,7 +19,7 @@ function argazkia(){
 		}
 	}
 	
-	XMLHttpRequestObject.open("GET", "ArgazkiakIkusi.php", true);
+	XMLHttpRequestObject.open("GET", "ArgazkiakIkusiAdministratzailea.php", true);
 	XMLHttpRequestObject.send();
 }
 
