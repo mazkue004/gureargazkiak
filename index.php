@@ -65,7 +65,7 @@
 			</div>
 		</nav>
 		
-		<div class="container-fluid">
+		<div class="container">
 			<div class="row">
 				<!--<div class="col-sm-3 col-md-2 sidebar">
 					<ul class="nav nav-sidebar">
@@ -86,7 +86,7 @@
 					</ul>
 				</div>-->
 				<!--<div  class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main"style="box-shadow: 0px 0px 5px blue">-->
-					<div id="datuak" style="box-shadow: 0px 0px 5px red">
+					<div id="datuak">
 						<div id="myCarousel" class="carousel slide" data-ride="carousel">
 							<!-- Indicators -->
 							<ol class="carousel-indicators">
@@ -98,10 +98,10 @@
 							<!-- Wrapper for slides -->
 							<div class="carousel-inner" role="listbox">
 								<?php
-									$sql=mysql_query("select * from argazkia");
+									$sql=mysql_query("select * from argazkia where Mota='publ'");
 									$argazkia=mysql_fetch_array($sql);
 									echo'<div class="item active">';
-									echo '<img src="data:image;base64,'.base64_encode($argazkia['Argazkia']).'" alt="'.$argazkia['Izenburua'].'" width="100">';
+									echo '<img src="data:image;base64,'.base64_encode($argazkia['Argazkia']).'" alt="'.$argazkia['Izenburua'].'" width="200">';
 									echo '<div class="carousel-caption">';
 									echo '<h3>'.$argazkia['Izenburua'].'</h3>';
 									echo '</div>';      
@@ -109,7 +109,7 @@
 									while($argazkia=mysql_fetch_array($sql)){
 										echo $argazkia['Izenburua'];
 										echo'<div class="item">';
-										echo '<img src="data:image;base64,'.base64_encode($argazkia['Argazkia']).'" alt="'.$argazkia['Izenburua'].'" width="100">';
+										echo '<img src="data:image;base64,'.base64_encode($argazkia['Argazkia']).'" alt="'.$argazkia['Izenburua'].'" width="200">';
 										echo '<div class="carousel-caption">';
 										echo '<h3>'.$argazkia['Izenburua'].'</h3>';
 										echo '</div>';      

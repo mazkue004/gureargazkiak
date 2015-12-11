@@ -6,7 +6,7 @@
 	mysql_select_db("u875011436_garg") or die(mysql_error());*/
 	
 	$sql=mysql_query("select * from argazkia where Eposta='$_GET[email]'");
-	echo "<h3>".$_GET['email']."ren argazkiak</h3>";
+	echo "<h3>".$_GET['email']."-ren argazkiak</h3>";
 	echo '<div id="edit"></div>';
 	echo '<div class="table-responsibe"><table class="table"><tr><th>Izenburua</th><th>Etiketa</th><th>Mota</th><th>Argazkia</th></tr>';
 	while($argazkia=mysql_fetch_array($sql)){

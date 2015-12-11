@@ -17,15 +17,10 @@
 		$erab=mysql_fetch_array($erabiltzaile);
 		if($erab){
 			if($erab['Pasahitza']!=$pass){
-				
-				echo '<script>alert("Pasahitza ez da zuzena");window.location.href="index.html";</script>';
-				
-				
-				
-				
+				echo '<script>alert("Pasahitza ez da zuzena");window.location.href="index.php";</script>';
 				}else{
 				if($erab['Onartua']==0){
-					echo '<script>alert("Oraindik administratzaileak ez zaitu onartu");window.location.href="index.html";</script>';
+					echo '<script>alert("Oraindik administratzaileak ez zaitu onartu");window.location.href="index.php";</script>';
 					}else{
 					$_SESSION['Eposta']=$erab['Eposta'];
 					$_SESSION['Rola']=$erab['Rola'];
@@ -42,10 +37,10 @@
 				}
 			}
 			}else{
-			echo '<script>alert("Ez zaude erregistratuta");window.location.href="index.html";</script>';
+			echo '<script>alert("Ez zaude erregistratuta");window.location.href="index.php";</script>';
 		}
 		}else{
-		echo '<script>alert("Bete eremu guztiak");window.location.href="index.html";</script>';
+		echo '<script>alert("Bete eremu guztiak");window.location.href="index.php";</script>';
 	}
 ?>
 

@@ -50,7 +50,7 @@ function gureArgazkiak(){
 			document.getElementById("datuak").innerHTML=XMLHttpRequestObject.responseText;
 		}
 	}
-	XMLHttpRequestObject.open("GET", "GureArgazkiak.php", true);
+	XMLHttpRequestObject.open("GET", "index.php", true);
 	XMLHttpRequestObject.send();
 }
 
