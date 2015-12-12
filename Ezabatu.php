@@ -1,12 +1,10 @@
 <?php
 	
-	mysql_connect("localhost","root","") or die(mysql_error());
-	mysql_select_db("gureargazkiak") or die(mysql_error());
-	/*mysql_connect("mysql.hostinger.es","u517629783_mazk","123456") or die(mysql_error());
-	mysql_select_db("u517629783_garg") or die(mysql_error());*/
+	$datuak = mysqli_connect("localhost","root","","gureargazkiak") or die(mysqli_error());
+	//$datuak = mysqli_connect("mysql.hostinger.es","u517629783_mazk","123456","u517629783_garg") or die(mysqli_error());
 	
 	$sql="delete from erabiltzaile where Eposta='$_GET[email]'";
-	mysql_query($sql);
+	mysqli_query($datuak,$sql);
 	
 	echo "Erabiltzailea ondo ezabatu da";
 ?>

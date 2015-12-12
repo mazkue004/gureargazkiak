@@ -1,8 +1,6 @@
 <?php
-	mysql_connect("localhost","root","") or die(mysql_error());
-	mysql_select_db("gureargazkiak") or die(mysql_error());
-	/*mysql_connect("mysql.hostinger.es","u875011436_mazk","123456") or die(mysql_error());
-	mysql_select_db("u875011436_garg") or die(mysql_error());*/
+	$datuak = mysqli_connect("localhost","root","","gureargazkiak") or die(mysqli_error());
+	//$datuak = mysqli_connect("mysql.hostinger.es","u517629783_mazk","123456","u517629783_garg") or die(mysqli_error());
 	
 	/*$route='argazkiak/';
 		$gordetzekoArgazkia = $route . basename($_FILES['argazkia']['name']);
@@ -33,21 +31,21 @@
 		if((!filter_var($_POST['izena'], FILTER_VALIDATE_REGEXP,array("options"=>array("regexp"=>"/[A-Z]([a-zA-Z]|\s[a-zA-Z])*/"))) === false) &&
 		(!filter_var($_POST['abizena1'], FILTER_VALIDATE_REGEXP,array("options"=>array("regexp"=>"/[a-zA-Z]([a-zA-Z]|\s[a-zA-Z])*/"))) === false) &&
 		(!filter_var($_POST['abizena2'], FILTER_VALIDATE_REGEXP,array("options"=>array("regexp"=>"/[a-zA-Z]([a-zA-Z]|\s[a-zA-Z])*/"))) === false)){
-			$erabepost = mysql_query("select Eposta from erabiltzaile where Eposta='$_POST[eposta]'");
-			if(mysql_fetch_array($erabepost)){
-				echo 'Eposta existitzen da, aldatu.';
+			$erabepost = mysqli_query($datuak,"select Eposta from erabiltzaile where Eposta='$_POST[eposta]'");
+			if(mysqli_fetch_array($erabepost,MYSQLI_ASSOC)){
+				echo '<script>alert("Eposta existitzen da, aldatu");window.location.href="index.php";</script>';
 				}else{
 				$sql="INSERT INTO erabiltzaile(Eposta, Izena, Abizena1, Abizena2, Pasahitza, Rola, PerfilArgazki, Onartua) VALUES ('$_POST[eposta]','$_POST[izena]','$_POST[abizena1]','$_POST[abizena2]','$_POST[pass]','erab','$argazkiEdukia','0')";
-				if(!mysql_query($sql)){
-					die('Errorea:  '.mysql_error());
+				if(!mysqli_query($datuak,$sql)){
+					die('Errorea:  '.mysqli_error());
 				}
-				echo 'Ondo gorde da';
-				mysql_close();
+				echo '<script>alert("Ondo gorde da");window.location.href="index.php";</script>';
+				mysqli_close();
 			}
 			} else{
-			echo 'Arazo bat egon da, ez da erabiltzailea gorde';
+			echo '<script>alert("Arazo bat egon da, ezin izan da erabiltzailea gorde");window.location.href="index.php";</script>';
 		}
 		} else{
-		echo 'Zuriunerenbat utzi duzu';
+		echo '<script>alert("Zuriunerenbat utzi duzu");window.location.href="index.php";</script>';
 	}
 ?>

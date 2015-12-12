@@ -1,9 +1,7 @@
 <?php
 	session_start();
-	mysql_connect("localhost","root","") or die(mysql_error());
-	mysql_select_db("gureargazkiak") or die(mysql_error());
-	/*mysql_connect("mysql.hostinger.es","u875011436_mazk","123456") or die(mysql_error());
-	mysql_select_db("u875011436_garg") or die(mysql_error());*/
+	$datuak = mysqli_connect("localhost","root","","gureargazkiak") or die(mysqli_error());
+	//$datuak = mysqli_connect("mysql.hostinger.es","u517629783_mazk","123456","u517629783_garg") or die(mysqli_error());
 	
 ?>
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -17,15 +15,15 @@
 	<!-- Wrapper for slides -->
 	<div class="carousel-inner" role="listbox">
 		<?php
-			$sql=mysql_query("select * from argazkia");
-			$argazkia=mysql_fetch_array($sql);
+			$sql=mysqli_query($datuak,"select * from argazkia");
+			$argazkia=mysqli_fetch_array($sql,MYSQLI_ASSOC);
 			echo'<div class="item active">';
 			echo '<img src="data:image;base64,'.base64_encode($argazkia['Argazkia']).'" alt="'.$argazkia['Izenburua'].'" width="200">';
 			echo '<div class="carousel-caption">';
 			echo '<h3>'.$argazkia['Izenburua'].'</h3>';
 			echo '</div>';      
 			echo '</div>';
-			while($argazkia=mysql_fetch_array($sql)){
+			while($argazkia=mysqli_fetch_array($sql,MYSQLI_ASSOC)){
 				echo $argazkia['Izenburua'];
 				echo'<div class="item">';
 				echo '<img src="data:image;base64,'.base64_encode($argazkia['Argazkia']).'" alt="'.$argazkia['Izenburua'].'" width="200">';

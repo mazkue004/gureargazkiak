@@ -1,15 +1,13 @@
 <?php 
-	//session_start();
+	session_start();
+	$datuak = mysqli_connect("localhost","root","","gureargazkiak") or die(mysqli_error());
+	//$datuak = mysqli_connect("mysql.hostinger.es","u517629783_mazk","123456","u517629783_garg") or die(mysqli_error());
 	
-	mysql_connect("localhost","root","") or die(mysql_error());
-	mysql_select_db("gureargazkiak") or die(mysql_error());
-	/*mysql_connect("mysql.hostinger.es","u517629783_mazk","123456") or die(mysql_error());
-	mysql_select_db("u517629783_garg") or die(mysql_error());*/
 	$sql="select * from erabiltzaile where Rola='erab'";
-	$erabiltzaile=mysql_query($sql);
+	$erabiltzaile=mysqli_query($datuak,$sql);
 	echo '<div class="table-responsibe"><table class="table table-hover"><thead><tr><th>Izena</th><th>Eposta</th><th>Aukerak</th></tr></thead><tbody>';
 	/**fetch_array honela jarri behar da, beste moduan ez du funtzionatzen**/
-	while($erab=mysql_fetch_array($erabiltzaile)){
+	while($erab=mysqli_fetch_array($erabiltzaile,MYSQLI_ASSOC)){
 		if($erab['Onartua']=='0'){
 			echo "<tr><td><font id='kolorea1' color='#E51212'>".$erab['Izena']."</font></td><td><font id='kolorea2' color='#E51212'>".$erab['Eposta']."</font></td><td><a id='onartuta' href='javascript:onartu(";
 			echo '"'.$erab['Eposta'].'"';

@@ -1,9 +1,7 @@
 <?php
 	session_start();
-	mysql_connect("localhost","root","") or die(mysql_error());
-	mysql_select_db("gureargazkiak") or die(mysql_error());
-	/*mysql_connect("mysql.hostinger.es","u875011436_mazk","123456") or die(mysql_error());
-	mysql_select_db("u875011436_garg") or die(mysql_error());*/
+	$datuak = mysqli_connect("localhost","root","","gureargazkiak") or die(mysqli_error());
+	//$datuak = mysqli_connect("mysql.hostinger.es","u517629783_mazk","123456","u517629783_garg") or die(mysqli_error());
 	
 	/*$route='argazkiak/';
 		$gordetzekoArgazkia = $route . basename($_FILES['argazkia']['name']);
@@ -30,10 +28,10 @@
 		}
 		if((isset($_POST['izenburua'])) &&(isset($_POST['etiketa'])) && (isset($_POST['optradio']))){
 			if(!filter_var($_POST['izenburua'], FILTER_VALIDATE_REGEXP,array("options"=>array("regexp"=>"/[A-Z]([a-zA-Z]|\s[a-zA-Z])*/"))) === false){
-				$erabepost = mysql_query("select * from erabiltzaile where Eposta='$_SESSION[Eposta]'");
-				if(mysql_fetch_array($erabepost)){
+				$erabepost = mysqli_query($datuak,"select * from erabiltzaile where Eposta='$_SESSION[Eposta]'");
+				if(mysqli_fetch_array($erabepost,MYSQLI_ASSOC)){
 					$sql="INSERT INTO argazkia(Eposta, Izenburua, Etiketa, Mota, Argazkia, KopErregistratu, KopAnonimo) VALUES ('$_SESSION[Eposta]','$_POST[izenburua]','$_POST[etiketa]','$_POST[optradio]','$argazkiEdukia',0,0)";
-					if(!mysql_query($sql)){
+					if(!mysqli_query($datuak,$sql)){
 						die('Errorea:  '.mysql_error());
 					}
 					echo '<script>alert("Ondo gorde da");window.location.href="erabiltzailea.php";</script>';
