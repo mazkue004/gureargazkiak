@@ -14,13 +14,13 @@
 		</div>
 		<div class="form-group">
 			<label>Mota(*): </label><div class="radio">
-				<label><input type="radio" name="optradio" value="prib" checked>Pribatua</label>
+				<label><input type="radio" name="optradio" value="pribatua" checked>Pribatua</label>
 			</div>
 			<div class="radio">
 				<label><input type="radio" name="optradio" value="atzipmug">Atzipen mugatua</label>
 			</div>
 			<div class="radio">
-				<label><input type="radio" name="optradio" value="publ">Publikoa</label>
+				<label><input type="radio" name="optradio" value="publikoa">Publikoa</label>
 			</div>
 		</div>
 		

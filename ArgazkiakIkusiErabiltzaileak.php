@@ -21,10 +21,15 @@
 			echo $argazkia['Kodea'];
 			echo ");'>";
 			echo'<img src="argazkiak/delete.png" alt="delete" style="width:30px;height:30px;"></a></td><td>';
+			echo "<a href='javascript:editatuArgazkiaErabiltzailea(";
+			echo $argazkia['Kodea'];
+			echo ");'>";
+			echo'<img src="argazkiak/edit.png" alt="delete" style="width:30px;height:30px;"></a></td><td>';
 			echo '</td></tr>';
 		}
 	}
-	echo '</tbody></table></div>';
+	echo '</tbody></table>';
+	echo'<div id="prib"></div></div>';
 	
 	
 ?>

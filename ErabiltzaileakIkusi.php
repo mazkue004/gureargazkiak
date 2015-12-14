@@ -17,7 +17,7 @@
 			echo "<a href='javascript:editatu(";
 			echo '"'.$erab['Eposta'].'"';
 			echo ");'>";
-			echo '<img src="argazkiak/edit.png" alt="edit" style="width:30px;height:30px;"></a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp';
+			echo '<img src="argazkiak/image.png" alt="edit" style="width:30px;height:30px;"></a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp';
 			
 			echo "<a href='javascript:ezabatu(";
 			echo '"'.$erab['Eposta'].'"';
@@ -34,7 +34,7 @@
 			echo "<a href='javascript:editatu(";
 			echo '"'.$erab['Eposta'].'"';
 			echo ");'>";
-			echo '<img src="argazkiak/edit.png" alt="edit" style="width:30px;height:30px;"></a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp';
+			echo '<img src="argazkiak/image.png" alt="edit" style="width:30px;height:30px;"></a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp';
 			
 			echo "<a href='javascript:ezabatu(";
 			echo '"'.$erab['Eposta'].'"';

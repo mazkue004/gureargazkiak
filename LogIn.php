@@ -10,7 +10,7 @@
 		$eposta=$_GET['eposta'];
 		$pass=$_GET['pass'];
 		
-		$sql="select Eposta,Pasahitza,Onartua,Rola from erabiltzaile where Eposta='$eposta'";
+		$sql="select Eposta,Izena,Pasahitza,Onartua,Rola from erabiltzaile where Eposta='$eposta'";
 		$erabiltzaile=mysqli_query($datuak,$sql);
 		$erab=mysqli_fetch_array($erabiltzaile,MYSQLI_ASSOC);
 		if($erab){
@@ -20,6 +20,7 @@
 				if($erab['Onartua']==0){
 					echo '<script>alert("Oraindik administratzaileak ez zaitu onartu");window.location.href="index.php";</script>';
 					}else{
+					$_SESSION['Izena']=$erab['Izena'];
 					$_SESSION['Eposta']=$erab['Eposta'];
 					$_SESSION['Rola']=$erab['Rola'];
 					if($erab['Rola']=='admin'){

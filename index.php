@@ -57,7 +57,7 @@
 						</li>
 					</ul>
 					<form class="navbar-form navbar-right">
-						<input type="text" class="form-control" placeholder="Aurkitu...">
+						<input id="etiketa" name="etiketa" type="text" class="form-control" placeholder="Aurkitu..."><input type="button" onclick="javascript:begiratu();" value="Aurkitu"/>
 					</form>
 				</div>
 			</div>
@@ -96,7 +96,7 @@
 							<!-- Wrapper for slides -->
 							<div class="carousel-inner" role="listbox">
 								<?php
-									$sql=mysqli_query($datuak,"select * from argazkia where Mota='publ'");
+									$sql=mysqli_query($datuak,"select * from argazkia where Mota='Publikoa'");
 									$argazkia=mysqli_fetch_array($sql,MYSQLI_ASSOC);
 									echo'<div class="item active">';
 									echo '<img src="data:image;base64,'.base64_encode($argazkia['Argazkia']).'" alt="'.$argazkia['Izenburua'].'" width="200">';

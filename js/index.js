@@ -102,4 +102,15 @@ function ikusBalioak(){
 	} 
 }
 
-
+function begiratu(){
+	var eti=document.getElementById("etiketa").value;
+	XMLHttpRequestObject = new XMLHttpRequest();
+	XMLHttpRequestObject.onreadystatechange = function(){
+		//alert(XMLHttpRequestObject.readyState);
+		if((XMLHttpRequestObject.readyState==4)&&(XMLHttpRequestObject.status==200)){
+			document.getElementById("datuak").innerHTML=XMLHttpRequestObject.responseText;
+		}
+	}
+	XMLHttpRequestObject.open("GET","Etiketak.php?etiketa="+ eti, true);
+	XMLHttpRequestObject.send();
+}

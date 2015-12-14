@@ -2,6 +2,8 @@
 	session_start();
 	$datuak = mysqli_connect("localhost","root","","gureargazkiak") or die(mysqli_error());
 	//$datuak = mysqli_connect("mysql.hostinger.es","u517629783_mazk","123456","u517629783_garg") or die(mysqli_error());
+
+	
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +31,7 @@
 		
 	</head>
 	
-	<body>
+	<body> <?php if($_SESSION['Rola']=='erab'){ ?>
 		
 		<script src="./js/erabiltzailea.js"></script>
 		
@@ -49,10 +51,16 @@
 						<li><a href="javascript:argazkiaErabiltzailea();">Argazkiak administratu</a></li>
 						<li><a href="javascript:argazkia();">Argazkia igo</a></li>
 						<li><a href="javascript:creditsDeitu();">Nor gara gu?</a></li>
-						<li><a href="index.php">Saioa itxi</a></li>
+						<li><div class="dropdown">
+							<button class="btn  dropdown-toggle" type="button" data-toggle="dropdown"><?php echo "Kaixo ".$_SESSION['Izena']; ?>
+							<span class="caret"></span></button>
+							<ul class="dropdown-menu">
+								<li><a href="index.php">Saioa itxi</a></li>
+							</ul>
+						</div></li>
 					</ul>
 					<form class="navbar-form navbar-right">
-						<input type="text" class="form-control" placeholder="Aurkitu...">
+						<input id="etiketa" name="etiketa" type="text" class="form-control" placeholder="Aurkitu..."><input type="button" onclick="javascript:begiratu();" value="Aurkitu"/>
 					</form>
 				</div>
 			</div>
@@ -94,7 +102,7 @@
 						<!-- Wrapper for slides -->
 						<div class="carousel-inner" role="listbox">
 							<?php
-								$sql=mysqli_query($datuak,"select * from argazkia where Eposta='$_SESSION[Eposta]'");
+								$sql=mysqli_query($datuak,"select * from argazkia where Eposta='$_SESSION[Eposta]' or Mota='Publikoa' or Mota='Mugatua' or Kodea in (select Kodea from pribatutasuna where Erabiltzailea='$_SESSION[Eposta]')");
 								$argazkia=mysqli_fetch_array($sql,MYSQLI_ASSOC);
 								echo'<div class="item active">';
 								echo '<img src="data:image;base64,'.base64_encode($argazkia['Argazkia']).'" alt="'.$argazkia['Izenburua'].'" width="200">';
@@ -139,5 +147,10 @@
 		<script src="../../assets/js/vendor/holder.min.js"></script>
 		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 		<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+	<?php
+	
+	}else if ($_SESSION['Rola']=='admin'){
+		echo "<h3>ERROR!</h3>";
+	}?>
 	</body>
 </html>
