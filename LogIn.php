@@ -23,16 +23,9 @@
 					$_SESSION['Izena']=$erab['Izena'];
 					$_SESSION['Eposta']=$erab['Eposta'];
 					$_SESSION['Rola']=$erab['Rola'];
-					if($erab['Rola']=='admin'){
-						//echo "admin";
-						//echo '<script>administratzailea();</script>';
-						header("Location:administratzailea.php");
-						exit();
-						}else if($erab['Rola']=='erab'){
-						//echo "<a href='erabiltzailea.php'>Sartu</a>";
-						header("Location:erabiltzailea.php");
-						exit();
-					}
+					
+					header("Location:index.php");
+					
 				}
 			}
 			}else{
@@ -41,6 +34,6 @@
 		}else{
 		echo '<script>alert("Bete eremu guztiak");window.location.href="index.php";</script>';
 	}
-?>
-
-<html></html>
+	?>
+	
+	<html></html>	

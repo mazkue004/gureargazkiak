@@ -34,19 +34,19 @@
 					if(!mysqli_query($datuak,$sql)){
 						die('Errorea:  '.mysql_error());
 					}
-					echo '<script>alert("Ondo gorde da");window.location.href="erabiltzailea.php";</script>';
+					echo '<script>alert("Ondo gorde da");window.location.href="index.php";</script>';
 					mysql_close();
 					}else{
-					echo '<script>alert("Ez dago erabiltzailea");window.location.href="erabiltzailea.php";</script>';
+					echo '<script>alert("Ez dago erabiltzailea");window.location.href="index.php";</script>';
 				}
 				} else{
-				echo '<script>alert("Arazo bat egon da, ez da argazkia igo");window.location.href="erabiltzailea.php";</script>';
+				echo '<script>alert("Arazo bat egon da, ez da argazkia igo");window.location.href="index.php";</script>';
 			}
 			} else{
-			echo '<script>alert("Zuriunerenbat utzi duzu");window.location.href="erabiltzailea.php";</script>';
+			echo '<script>alert("Zuriunerenbat utzi duzu");window.location.href="index.php";</script>';
 		}
 	} else {
-		echo '<script>alert("Argazkiaren tamaina 2MB baino handiagoa da");window.location.href="erabiltzailea.php";</script>';
+		echo '<script>alert("Argazkiaren tamaina 2MB baino handiagoa da");window.location.href="index.php";</script>';
 	}
 	
 ?>

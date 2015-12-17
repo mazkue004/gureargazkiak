@@ -1,10 +1,10 @@
 <?php
 	session_start();
-	?>
+?>
 <div class="container">
-	<form role="form" id="arg" name="arg" method="POST" action="ArgazkiaIgo.php"  enctype="multipart/form-data">
+	<form role="form" id="arg" name="arg" method="POST" action="Igo.php"  enctype="multipart/form-data">
 		<div class="form-group">
-			<label>Argazkia </label><input type="file" name="argazki" id="argazki" onclick="javascript:argazkiaErakutsi();" required/><br/><img id="target" width="150px"  />
+			<label>Argazkia </label><input type="file" name="argazki" id="argazki" onclick="argazkiaErakutsi();" required/><br/><img id="target" width="150px"  />
 		</div>
 		<div class="form-group">
 			<label>Izenburua(*): </label><input type="text" name="izenburua" id="izenburua" required placeholder="Izenburua" pattern="[A-Z]([a-zA-Z]|\s[a-zA-Z])*" />

@@ -10,18 +10,7 @@ function erabiltzaileakIkusi(){
 	XMLHttpRequestObject.send();
 }
 
-function argazkia(){
-	XMLHttpRequestObject = new XMLHttpRequest();
-	XMLHttpRequestObject.onreadystatechange = function(){
-		//alert(XMLHttpRequestObject.readyState);
-		if((XMLHttpRequestObject.readyState==4)&&(XMLHttpRequestObject.status==200)){
-			document.getElementById("datuak").innerHTML=XMLHttpRequestObject.responseText;
-		}
-	}
-	
-	XMLHttpRequestObject.open("GET", "ArgazkiakIkusiAdministratzailea.php", true);
-	XMLHttpRequestObject.send();
-}
+
 
 function onartu(email){
 	var posta=email;

@@ -22,7 +22,11 @@ if(isset($_POST['espezialitatea'])){
 $sql="UPDATE `gureargazkiak`.`argazkia` SET `Mota` = '$espezialitatea' where `Kodea` = '$_POST[kodea]'";
 if(!mysqli_query($datuak,$sql)){
 	die('Errorea:  '.mysqli_error());
-}echo '<script>alert("Ondo eraldatu da");window.location.href="erabiltzailea.php";</script>';
+}echo '<script>
+	alert("Ondo eraldatu da pribatutasuna");
+	header("location:index.php"); 
+
+</script>';
 
 
 ?>
