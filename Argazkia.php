@@ -2,7 +2,7 @@
 	session_start();
 ?>
 <div class="container">
-	<form role="form" id="arg" name="arg" method="POST" action="Igo.php"  enctype="multipart/form-data">
+	<form role="form" id="arg" name="arg" method="POST" action="ArgazkiaIgo.php"  enctype="multipart/form-data">
 		<div class="form-group">
 			<label>Argazkia </label><input type="file" name="argazki" id="argazki" onclick="argazkiaErakutsi();" required/><br/><img id="target" width="150px"  />
 		</div>
