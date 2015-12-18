@@ -5,7 +5,7 @@
 	if(isset($_SESSION['Rola'])){
 		
 		
-		$datuak = mysqli_connect("localhost","root","","gureargazkiak") or die(mysqli_error());
+		//$datuak = mysqli_connect("localhost","root","","gureargazkiak") or die(mysqli_error());
 		//$datuak = mysqli_connect("mysql.hostinger.es","u517629783_mazk","123456","u517629783_garg") or die(mysqli_error());
 		if ($_SESSION['Rola']=='erab'){
 			$sql="select * from argazkia where (Eposta='$_SESSION[Eposta]' or Mota='Publikoa' or Mota='Mugatua' or Kodea in (select Kodea from pribatutasuna where Erabiltzailea='$_SESSION[Eposta]')) and Etiketa = '$_GET[etiketa]'";
